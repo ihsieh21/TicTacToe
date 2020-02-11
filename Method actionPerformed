@@ -1,0 +1,25 @@
+    public void actionPerformed(ActionEvent e) 
+        {
+
+            JButton buttonClicked = (JButton)e.getSource(); //get the particular button that was clicked
+            if (!buttonClicked.getText().equals(""))
+            {
+                JOptionPane.showConfirmDialog(null, "This box is already filled. Choose another.");
+            }
+            else
+            {
+                if(alternate % 2 == 0)
+                    buttonClicked.setText("X");
+                else
+                    buttonClicked.setText("O");
+            }
+            
+            if(checkStatus() > 0)     // if game is over
+            {
+                JOptionPane.showConfirmDialog(null, "Game Over.");
+                resetButtons();
+            }
+
+            alternate++;
+
+        }
